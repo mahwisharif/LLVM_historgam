@@ -16,7 +16,7 @@ unset output
 do for [i=0:3] {
     stats '/home/ma843/histo.csv' using ($0==i? $1 : 1/0) nooutput
     value = int(STATS_sum)
-    do for [j=0:value] {
+    do for [j=0:value-1] {
        set label at i, j "*" offset char 0, 0 font ",8"
     }
 }
